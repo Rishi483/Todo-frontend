@@ -14,13 +14,13 @@ const AddTodo = () => {
     if(isSpaceOnlyString) return;
     dispatch(addTodo({title,isCompleted:false,id:Math.random(1000)}));
     try {
-      await axios.post(process.env.VITE_BACKEND_URL+'/addTodo',{todo:{title,isCompleted:false,id:Math.random(1000)}});
+      await axios.post(import.meta.env.VITE_BACKEND_URL+'/addTodo',{todo:{title,isCompleted:false,id:Math.random(1000)}});
     } catch (err) {
       console.log(err);
     }
     setTitle("");
   }
-  
+
   return (
     <Stack direction="row" alignItems={"center"} justifyContent={"center"} padding={"1rem"} margin={"0 10%"}>
         <TextField onKeyDown={(e)=>{

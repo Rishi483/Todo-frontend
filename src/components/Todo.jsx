@@ -16,7 +16,7 @@ const Todo = ({todo}) => {
   const handleDelete=async(id)=>{
     dispatch(deleteTodo(id));
     try {
-      await axios.post(process.env.VITE_BACKEND_URL+'/deleteTodo',{id});
+      await axios.post(import.meta.env.VITE_BACKEND_URL+'/deleteTodo',{id});
     }catch (err) {
        console.log(err);
     }
@@ -24,7 +24,7 @@ const Todo = ({todo}) => {
   const handleEdit=async(updatedTodo)=>{
     dispatch(updateTodos(updatedTodo));
     try {
-      await axios.patch(process.env.VITE_BACKEND_URL+'/updateTodo',{"todo":updatedTodo});
+      await axios.patch(import.meta.env.VITE_BACKEND_URL+'/updateTodo',{"todo":updatedTodo});
     } catch (err) {
       console.log(err);
     }
