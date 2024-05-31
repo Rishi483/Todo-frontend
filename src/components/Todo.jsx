@@ -16,7 +16,7 @@ const Todo = ({todo}) => {
   const handleDelete=async(id)=>{
     dispatch(deleteTodo(id));
     try {
-      await axios.post('http://localhost:3000/deleteTodo',{id});
+      await axios.post(process.env.VITE_BACKEND_URL+'/deleteTodo',{id});
     }catch (err) {
        console.log(err);
     }
@@ -24,12 +24,12 @@ const Todo = ({todo}) => {
   const handleEdit=async(updatedTodo)=>{
     dispatch(updateTodos(updatedTodo));
     try {
-      await axios.patch('http://localhost:3000/updateTodo',{"todo":updatedTodo});
+      await axios.patch(process.env.VITE_BACKEND_URL+'/updateTodo',{"todo":updatedTodo});
     } catch (err) {
       console.log(err);
     }
   }
-  console.log(`${todo.title}.jsx`);
+
   return (
     <Paper sx={{margin:"5px",padding:"0 1%"}}>
       <Stack direction={"row"} alignItems={"center"} justifyContent={"space-between"}>

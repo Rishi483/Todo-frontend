@@ -8,7 +8,6 @@ import IconButton from '@mui/material/IconButton';
 import ChecklistRtlIcon from '@mui/icons-material/ChecklistRtl';
 
 function Navbar(){
-  console.log('navbar.jsx');
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">

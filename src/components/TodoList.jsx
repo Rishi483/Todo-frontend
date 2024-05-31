@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux'
 
 const TodoList = () => {
   const todos=useSelector(state=>state.todosReducer.todos);
-  console.log('todolist.jsx');
+
   return (
     <Stack margin={"1% 25%"}>
         {todos.map((item)=>{

@@ -11,12 +11,12 @@ function App() {
   const dispatch=useDispatch();
 
   useEffect(()=>{
-    fetch('http://localhost:3000/getTodos').then(response => response.json())
+    fetch(process.env.VITE_BACKEND_URL+'/getTodos').then(response => response.json())
     .then(v=>{
       dispatch(setTodos(v));
     });
   },[])
-  console.log('app.jsx');
+  
   return (
     <>
       <Navbar/>
