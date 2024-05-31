@@ -13,12 +13,12 @@ const AddTodo = () => {
     const isSpaceOnlyString = title.trim() === '';
     if(isSpaceOnlyString) return;
     dispatch(addTodo({title,isCompleted:false,id:Math.random(1000)}));
+    setTitle("");
     try {
       await axios.post(import.meta.env.VITE_BACKEND_URL+'/addTodo',{todo:{title,isCompleted:false,id:Math.random(1000)}});
     } catch (err) {
       console.log(err);
     }
-    setTitle("");
   }
 
   return (
